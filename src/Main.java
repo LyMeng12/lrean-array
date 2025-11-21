@@ -9,13 +9,13 @@ public class Main {
         System.out.print("How many student:");
         int n = in.nextInt();
         int total = 0;
-        int[][] scor =new int[n][5];
+        int[][] scor =new int[n][6];
         String[] name = new String[n];
 
         for(int i = 0; i<n;i++ ){
             System.out.print("Enter name of student:");
             name[i] = in.next();
-            for(int j = 0; j<5;j++){
+            for(int j = 0; j<6;j++){
                 switch (j){
                     case 0:{
                             System.out.print("Enter MIS:");
@@ -37,6 +37,10 @@ public class Main {
                         System.out.print("Enter WED2:");
                         scor[i][j]=in.nextInt();
                     }break;
+                    case 5:{
+                        System.out.print("Enter 2D:");
+                        scor[i][j]=in.nextInt();
+                    }break;
 
                 }
                 total += scor[i][j];
@@ -45,10 +49,10 @@ public class Main {
         }
         System.out.println("======================================================");
         System.out.println("List Student"+n);
-        System.out.println("ID"+"\t"+"Name"+" "+"MIS"+"\t"+"SA"+"\t"+"SM"+"\t"+"JV"+"\t"+"WD"+"\t"+"Total"+"\t");
+        System.out.println("ID"+"\t"+"Name"+"\t"+"MIS"+"\t"+"SA"+"\t"+"SM"+"\t"+"JV"+"\t"+"WD"+"\t"+"2D"+"\t"+"Total"+"\t");
         for(int i = 0; i<n;i++ ){
-            System.out.print((i+1)+"\t" +name[i]+"\t" );
-            for(int j = 0; j<5;j++){
+            System.out.print((i+1)+"\t" +name[i]+"\t\t" );
+            for(int j = 0; j<6;j++){
                 System.out.print(scor[i][j]+"\t");
 
             }
