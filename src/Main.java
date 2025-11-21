@@ -9,6 +9,7 @@ public class Main {
         System.out.print("How many student:");
         int n = in.nextInt();
         int total = 0;
+        double average = 0;
         int[][] scor =new int[n][6];
         String[] name = new String[n];
 
@@ -45,18 +46,21 @@ public class Main {
                 }
                 total += scor[i][j];
 
+
+
             }
         }
         System.out.println("======================================================");
         System.out.println("List Student"+n);
-        System.out.println("ID"+"\t"+"Name"+"\t"+"MIS"+"\t"+"SA"+"\t"+"SM"+"\t"+"JV"+"\t"+"WD"+"\t"+"2D"+"\t"+"Total"+"\t");
+        System.out.println("ID"+"\t"+"Name"+"\t"+"MIS"+"\t"+"SA"+"\t"+"SM"+"\t"+"JV"+"\t"+"WD"+"\t"+"2D"+"\t"+"Total"+"\t"+"Average"+"\t");
         for(int i = 0; i<n;i++ ){
             System.out.print((i+1)+"\t" +name[i]+"\t\t" );
             for(int j = 0; j<6;j++){
                 System.out.print(scor[i][j]+"\t");
 
             }
-            System.out.print(total);
+            System.out.print(total+"\t\t");
+            System.out.println((total / n));
             System.out.println();
         }
     }
