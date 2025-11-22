@@ -36,11 +36,36 @@ public class array {
             switch(chack){
                 case 1:
                 {
-                    System.out.print("Floor:");
-                    int floor = sc.nextInt();
-                    System.out.print("Room:");
-                    int room1 = sc.nextInt();
-                    room[floor][room1]=1;
+                    for (int i=0;i<3;i++){
+                        for(int j=0;j<5;j++){
+                            if(room[i][j]==1){
+                                System.out.print("Room "+(i+1)+":"+(j+1)+" (OFF)"+"\t");
+                            } else if (room[i][j]==0) {
+                                System.out.print("Room "+(i+1)+":"+(j+1)+" (ON)"+"\t");
+                            }
+
+                        }
+                        System.out.println();
+                    }
+                    boolean go;
+
+                    do {
+                        System.out.print("Floor: ");
+                        int floor = sc.nextInt();
+
+                        System.out.print("Room: ");
+                        int room1 = sc.nextInt();
+
+                        if (room[floor-1][room1-1] == 1) {
+                            System.out.println("Room "+floor+":"+room1+" is already OFF.");
+                            go = true;
+                        } else {
+                            room[floor-1][room1-1] = 1;
+                            System.out.println("Room "+floor+":"+room1+" turned OFF.");
+                            go = false;
+                        }
+
+                    } while (go);
 
 
 
