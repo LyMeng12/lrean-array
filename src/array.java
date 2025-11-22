@@ -72,34 +72,31 @@ public class array {
 
 
                 }break;
-                case 2:{
-                    System.out.print("Floor (1-3): ");
-                    int f = sc.nextInt() - 1;
+                case 2:
+                {
 
-                    System.out.print("Room (1-5): ");
-                    int r = sc.nextInt() - 1;
-                    for(int j=0;j<3;j++){
-                        for(int k=0;k<5;k++){
-                            if (room[f][r] == 1) {
-                                room[f][r] = 0;
-
-                                System.out.println("Room cancelled.");
-                            } else {
-                                System.out.println("Room already empty.");
+                    for (int i=0;i<3;i++){
+                        for(int j=0;j<5;j++){
+                            if(room[i][j]==1){
+                                System.out.print("Room "+(i+1)+":"+(j+1)+" (OFF)"+"\t");
                             }
                         }
+                        System.out.println();
                     }
+                    System.out.print("Floor : ");
+                    int floor = sc.nextInt() - 1;
 
+                    System.out.print("Room : ");
+                    int room1 = sc.nextInt() - 1;
 
+                    if (room[floor][room1] == 1) {
+                        room[floor][room1] = 0;
+                        System.out.println("Room "+(floor+1)+":"+(room1+1)+" is already ON.");
+
+                    }else {
+                        System.out.println("Room "+(floor+1)+":"+(room1+1)+" turned ON.");
+                    }
                 }break;
-            }
-
-
-
-
-
-            if(rooms==0){
-                break;
             }
         }
 
