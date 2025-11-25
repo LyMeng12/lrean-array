@@ -16,7 +16,7 @@ public class array {
                 for(int j=0;j<5;j++){
                     rooms++;
                     if(room[i][j]==1){
-                        rooms=rooms-1;
+                        rooms-=1;
                         busy+=1;
                     }
                 }
@@ -52,9 +52,17 @@ public class array {
                     do {
                         System.out.print("Floor: ");
                         int floor = sc.nextInt();
+                        while (floor<1 || floor>3){
+                            System.out.print("again Floor: ");
+                            floor = sc.nextInt();
+                        }
 
                         System.out.print("Room: ");
                         int room1 = sc.nextInt();
+                        while (room1<1 || room1>3){
+                            System.out.print("Room: ");
+                            room1 = sc.nextInt();
+                        }
 
                         if (room[floor-1][room1-1] == 1) {
                             System.out.println("Room "+floor+":"+room1+" is already OFF.");
@@ -84,13 +92,21 @@ public class array {
                         System.out.println();
                     }
                     System.out.print("Floor : ");
-                    int floor = sc.nextInt() - 1;
+                    int floor = sc.nextInt() ;
+                    while (floor<1 || floor>3){
+                        System.out.print("again Floor: ");
+                        floor = sc.nextInt();
+                    }
 
                     System.out.print("Room : ");
-                    int room1 = sc.nextInt() - 1;
+                    int room1 = sc.nextInt();
+                    while (room1<1 || room1>3){
+                        System.out.print("Room: ");
+                        room1 = sc.nextInt();
+                    }
 
-                    if (room[floor][room1] == 1) {
-                        room[floor][room1] = 0;
+                    if (room[floor][room1- 1] == 1) {
+                        room[floor][room1 - 1] = 0;
                         System.out.println("Room "+(floor+1)+":"+(room1+1)+" is already ON.");
 
                     }else {
