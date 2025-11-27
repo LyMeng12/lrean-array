@@ -86,32 +86,38 @@ public class array {
                     for (int i=0;i<3;i++){
                         for(int j=0;j<5;j++){
                             if(room[i][j]==1){
-                                System.out.print("Room "+(i+1)+":"+(j+1)+" (OFF)"+"\t");
+                                System.out.println("Room "+(i+1)+":"+(j+1)+" (OFF)");
                             }
                         }
-                        System.out.println();
+//                        System.out.println();
                     }
-                    System.out.print("Floor : ");
-                    int floor = sc.nextInt() ;
-                    while (floor<1 || floor>3){
-                        System.out.print("again Floor: ");
-                        floor = sc.nextInt();
-                    }
+                    boolean go;
+                    do{
+                        go=true;
+                        System.out.print("Floor : ");
+                        int floor = sc.nextInt() ;
+                        while (floor<1 || floor>3){
+                            System.out.print("again Floor: ");
+                            floor = sc.nextInt();
+                        }
 
-                    System.out.print("Room : ");
-                    int room1 = sc.nextInt();
-                    while (room1<1 || room1>3){
-                        System.out.print("Room: ");
-                        room1 = sc.nextInt();
-                    }
+                        System.out.print("Room : ");
+                        int room1 = sc.nextInt();
+                        while (room1<1 || room1>3){
+                            System.out.print("Room: ");
+                            room1 = sc.nextInt();
+                        }
 
-                    if (room[floor][room1- 1] == 1) {
-                        room[floor][room1 - 1] = 0;
-                        System.out.println("Room "+(floor+1)+":"+(room1+1)+" is already ON.");
+                        if (room[floor-1][room1- 1] == 1) {
+                            room[floor-1][room1 - 1] = 0;
+                            System.out.println("Room "+(floor)+":"+(room1)+" is already ON.");
+                            break;
+                        }else {
+                            System.out.println("Room "+(floor)+":"+(room1)+" turned ON.");
 
-                    }else {
-                        System.out.println("Room "+(floor+1)+":"+(room1+1)+" turned ON.");
-                    }
+                        }
+                    }while (go);
+
                 }break;
             }
         }
