@@ -59,7 +59,7 @@ public class array {
 
                         System.out.print("Room: ");
                         int room1 = sc.nextInt();
-                        while (room1<1 || room1>3){
+                        while (room1<1 || room1>5){
                             System.out.print("Room: ");
                             room1 = sc.nextInt();
                         }
@@ -103,7 +103,7 @@ public class array {
 
                         System.out.print("Room : ");
                         int room1 = sc.nextInt();
-                        while (room1<1 || room1>3){
+                        while (room1<1 || room1>5){
                             System.out.print("Room: ");
                             room1 = sc.nextInt();
                         }
