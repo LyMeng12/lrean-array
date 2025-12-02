@@ -7,7 +7,10 @@ public class array1 {
 
         int[] a = new int[0];
         int[] s = new int[0];
-//        int[] d = new int[0];
+
+
+
+
 
         while (true) {
 
@@ -69,13 +72,11 @@ public class array1 {
                             b[i+1]=a[i];
                         }
                         a=b;
-//                        System.out.println(Arrays.toString(a));
 
                     }break;
                     case 3:{
                         for(int i=0;i<a.length;i++){
                             System.out.print(a[i]+" ");
-//                            System.out.println();
                         }
                         System.out.print("Choose Index:");
                         int  index = in.nextInt();
@@ -106,20 +107,21 @@ public class array1 {
                         a[index]=value;
                     }break;
                     case 5:{
-                        System.out.print("Display Array: ");
-                        if (s[0]==0 ){
+                        if (s.length == 0 ){
+                            System.out.print("Display Array: ");
                             for(int i=0;i<a.length;i++){
+
                                 System.out.print(a[i]+" ");
 //                            System.out.println();
                             }
-                        } else if (s[0] != 0 ) {
-                            System.out.println("a.ASO");
-                            System.out.println("b.Desc");
+                        } else if (s.length != 0 ) {
+                            System.out.println("a.Original list");
+                            System.out.println("b.Sorted list");
                             System.out.print("Choose:");
                             String value = in.nextLine();
-                            while (!value.equals("a" )|| !value.equals("b")){
+                            while (!value.equals("a") && !value.equals("b")){
                                 System.out.print("Choose again:");
-                                value = in.nextLine();
+                                value = in.next();
                             }
                             if(value.equals("a")){
                                 for (int i=0;i<a.length;i++){
@@ -134,7 +136,64 @@ public class array1 {
                         }
                     }break;
                     case 6:{
+                        System.out.println("a.ASO");
+                        System.out.println("b.Desc");
+                        System.out.print("Choose:");
+                        String value = in.next();
+                        while (!value.equals("a" ) && !value.equals("b")){
+                            System.out.print("Choose again:");
+                            value = in.nextLine();
+                        }
 
+                        if (value.equals("a")){
+                            int[] d = new int[a.length];
+                            for(int i=0;i<a.length;i++){
+                                d[i] = a[i];
+                            }
+                            for (int i = 0; i < d.length - 1; i++) {
+                                for (int j = i + 1; j < d.length; j++) {
+                                    if (d[i] > d[j]) {
+                                        int tmp = d[i];
+                                        d[i] = d[j];
+                                        d[j] = tmp;
+                                    }
+                                }
+                            }
+                            s=d;
+                        } else if (value.equals("b")) {
+                            int[] d = new int[a.length];
+                            for(int i=0;i<a.length;i++){
+                                d[i] = a[i];
+                            }
+                            for (int i = 0; i < d.length - 1; i++) {
+                                for (int j = i + 1; j < d.length; j++) {
+                                    if (d[i] < d[j]) {
+                                        int tmp = d[i];
+                                        d[i] = d[j];
+                                        d[j] = tmp;
+                                    }
+                                }
+                            }
+                            s=d;
+                        }
+                    }break;
+                    case 7:{
+                        System.out.print("Enter search value: ");
+                        int value = in.nextInt();
+
+                        int pos = -1;
+                        for (int i = 0; i < a.length; i++) {
+                            if (a[i] == value) {
+                                pos = i;
+                                break;
+                            }
+                        }
+
+                        if (pos == -1) {
+                            System.out.println("Not found!");
+                        }else{
+                            System.out.println("Found at index: " + pos);
+                        }
                     }break;
                 }
             }
