@@ -6,8 +6,11 @@ public class array1 {
         Scanner in = new Scanner(System.in);
 
         int[] a = new int[0];
+        int[] s = new int[0];
+//        int[] d = new int[0];
 
         while (true) {
+
             if(a.length==0){
                 System.out.println("1.Add");
                 System.out.print("Please Choose:");
@@ -62,14 +65,19 @@ public class array1 {
                             b[i] = a[i];
                         }
                         b[index]=value;
-                        for(int i=0;i<a.length;i++){
+                        for(int i=index;i<a.length;i++){
                             b[i+1]=a[i];
                         }
                         a=b;
+//                        System.out.println(Arrays.toString(a));
 
                     }break;
                     case 3:{
-                        System.out.println("Choose Index:");
+                        for(int i=0;i<a.length;i++){
+                            System.out.print(a[i]+" ");
+//                            System.out.println();
+                        }
+                        System.out.print("Choose Index:");
                         int  index = in.nextInt();
                         while(index < 0 || index > a.length){
                             System.out.println("Invalid Index");
@@ -80,7 +88,7 @@ public class array1 {
                         for(int i=0;i<index;i++){
                             b[i] = a[i];
                         }
-                        for(int i=0;i<b.length;i++){
+                        for(int i=index;i<b.length;i++){
                             b[i]=a[i+1];
                         }
                         a=b;
@@ -98,14 +106,39 @@ public class array1 {
                         a[index]=value;
                     }break;
                     case 5:{
-                        System.out.println("Display Array");
-                        for(int i=0;i<a.length;i++){
-                            System.out.print(a[i]+" ");
+                        System.out.print("Display Array: ");
+                        if (s[0]==0 ){
+                            for(int i=0;i<a.length;i++){
+                                System.out.print(a[i]+" ");
 //                            System.out.println();
+                            }
+                        } else if (s[0] != 0 ) {
+                            System.out.println("a.ASO");
+                            System.out.println("b.Desc");
+                            System.out.print("Choose:");
+                            String value = in.nextLine();
+                            while (!value.equals("a" )|| !value.equals("b")){
+                                System.out.print("Choose again:");
+                                value = in.nextLine();
+                            }
+                            if(value.equals("a")){
+                                for (int i=0;i<a.length;i++){
+                                    System.out.print(a[i]+" ");
+                                }
+                            } else if(value.equals("b")){
+                                for (int i=0;i<s.length;i++){
+                                    System.out.print(s[i]+" ");
+                                }
+                            }
+
                         }
+                    }break;
+                    case 6:{
+
                     }break;
                 }
             }
+            System.out.println();
         }
 
     }
