@@ -5,23 +5,25 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-        try{
-            File f = new File("test.txt");;
-            f.createNewFile();
-            FileWriter fw = new FileWriter(f);
-            fw.write("Hello World");
-            fw.write("HIHIHIHIHIHI");fw.close();
+       try{
+           File f = new File("ready.txt");
+           f.createNewFile();
+           if(f.createNewFile()){
+               System.out.println("Successfully created a new file");
+           }
+           FileWriter fw = new FileWriter(f);
+           fw.write("Fuck You;");
+           fw.close();
 
+           Scanner sc = new Scanner(f);
+           while(sc.hasNextLine()){
+               System.out.println(sc.nextLine());
+           }
+           sc.close();
 
-            Scanner sc = new Scanner(f);
-            while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
-            }
-            sc.close();
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
 }
 
