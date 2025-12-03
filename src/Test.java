@@ -1,23 +1,12 @@
-import java.io.File;                  // Import the File class
-import java.io.FileNotFoundException; // Import this class to handle errors
-import java.util.Scanner;
+import java.util.ArrayList;
 
-public class Test {
+class Test{
     public static void main(String[] args) {
-
-
-        // try-with-resources: Scanner will be closed automatically
-        try {
-            File myObj = new File("filename.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        // output value
+        System.out.println(list);
+        // input value arraylist
+        System.out.println(list.size());
     }
 }
-
