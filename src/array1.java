@@ -111,20 +111,44 @@ public class array1 {
                     }break;
                     case 3:{
                         for(int i=0;i<a.length;i++){
-                            System.out.print("Index("+i+"):"+a[i]+" ");
+                            System.out.print(a[i]+" ");
                         }
                         System.out.println();
-                        System.out.print("Choose Index:");
-                        int  index = in.nextInt();
-                        while(index <= 0 || index >= a.length){
-                            System.out.println("Invalid Index");
-                            System.out.print("Choose Again Index:");
-                            index =in.nextInt();
-                        }
+                        int value;
+                        int va;
+                        boolean tr = true;
+                        do{
+                            System.out.print("Choose Number:");
+                            va = in.nextInt();
+                            for(int i=0;i<a.length;i++){
+                                if(a[i]==va) {
+                                    tr = false;
+
+                                    break;
+                                }else {
+                                    tr = true;
+                                }
+                            }
+                            System.out.println("Look the NUmber!");
+                        }while(tr);
+                        value = va;
+
+                        int index=0;
                         int[] b = new int[a.length-1];
-                        for(int i=0;i<index;i++){
-                            b[i] = a[i];
+                        for(int i=0;i<a.length;i++){
+
+                            if(a[i]==value) {
+
+                                break;
+                            }else {
+
+                                b[i] = a[i];
+                                index++;
+
+                            }
                         }
+//                        sum = index;
+//                        System.out.println(index);
                         for(int i=index;i<b.length;i++){
                             b[i]=a[i+1];
                         }
@@ -286,7 +310,6 @@ public class array1 {
                     }break;
                 }
             }
-//            System.out.println();
         }
 
     }
