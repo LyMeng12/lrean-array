@@ -14,7 +14,6 @@ public class array1 {
 
 
         while (true) {
-            boolean list = true;
 
             if(a.length==0){
                 System.out.println("1.Add");
@@ -45,8 +44,23 @@ public class array1 {
                 int n = in.nextInt();
                 switch(n){
                     case 1:{
-                        System.out.print("Input Number:");
-                        int value = in.nextInt();
+                        int value;
+                        boolean tr = true;
+                        do{
+                            System.out.print("Input Number:");
+                            int va = in.nextInt();
+
+                            for(int i=0;i<a.length;i++){
+                                if(a[i]==va) {
+                                    tr = true;
+                                    System.out.println("Number is have.");
+                                    break;
+                                } else {
+                                    tr = false;
+                                }
+                            }
+                            value=va;
+                        }while (tr);
                         int[] b = new int[a.length+1];
                         for(int i=0;i<a.length;i++){
                             b[i] = a[i];
@@ -58,15 +72,31 @@ public class array1 {
                         for(int i=0;i<a.length;i++){
                             System.out.print("Index("+i+"):"+a[i]+" ");
                         }
+                        System.out.println();
                         System.out.print("Choose Index:");
                         int index =in.nextInt();
-                        while(index < 0 || index > a.length){
+                        while(index < 0 || index >= a.length){
                             System.out.println("Invalid Index");
                             System.out.print("Enter Again Index:");
                             index =in.nextInt();
                         }
-                        System.out.print("Enter Number:");
-                        int value = in.nextInt();
+                        int value;
+                        boolean tr = true;
+                        do{
+                            System.out.print("Input Number:");
+                            int va = in.nextInt();
+
+                            for(int i=0;i<a.length;i++){
+                                if(a[i]==va) {
+                                    tr = true;
+                                    System.out.println("Number is have.");
+                                    break;
+                                } else {
+                                    tr = false;
+                                }
+                            }
+                            value=va;
+                        }while (tr);
 
                         int[] b = new int[a.length+1];
                         for(int i=0;i<index;i++){
@@ -83,9 +113,10 @@ public class array1 {
                         for(int i=0;i<a.length;i++){
                             System.out.print("Index("+i+"):"+a[i]+" ");
                         }
+                        System.out.println();
                         System.out.print("Choose Index:");
                         int  index = in.nextInt();
-                        while(index < 0 || index > a.length){
+                        while(index <= 0 || index >= a.length){
                             System.out.println("Invalid Index");
                             System.out.print("Choose Again Index:");
                             index =in.nextInt();
@@ -111,11 +142,27 @@ public class array1 {
                             System.out.print("Enter Again Index:");
                             index =in.nextInt();
                         }
-                        System.out.print("Enter Number:");
-                        int value = in.nextInt();
+                        int value;
+                        boolean tr = true;
+                        do{
+                            System.out.print("Input Number:");
+                            int va = in.nextInt();
+
+                            for(int i=0;i<a.length;i++){
+                                if(a[i]==va) {
+                                    tr = true;
+                                    System.out.println("Number is have.");
+                                    break;
+                                } else {
+                                    tr = false;
+                                }
+                            }
+                            value=va;
+                        }while (tr);
                         a[index]=value;
                     }break;
                     case 5:{
+
                         if (aso.length == 0 && des.length == 0 ) {
                             System.out.print("Display Array: ");
                             for(int i=0;i<a.length;i++){
@@ -123,53 +170,76 @@ public class array1 {
                                 System.out.print(a[i]+" ");
                             }
                         } else if (aso.length != 0  || des.length == 0 ) {
-                            System.out.println("a.Original list:");
-                            for (int i=0;i<a.length;i++){
-                                System.out.print(a[i]+" ");
+                            System.out.println("a.Original list");
+                            System.out.println("b.Sorted list(aso)");
+                            System.out.print("Choose (a-b):");
+                            String choose = in.next();
+                            while (!choose.equals("a") && !choose.equals("b")) {
+                                System.out.println("Invalid Choice");
+                                System.out.print("Choose again:");
+                                choose = in.next();
                             }
-                            System.out.println();
-                            System.out.println("b.Sorted list:");
-                            int[] d = new int[a.length];
-                            for(int i=0;i<a.length;i++){
-                                d[i] = a[i];
-                            }
-                            for (int i = 0; i < d.length - 1; i++) {
-                                for (int j = i + 1; j < d.length; j++) {
-                                    if (d[i] > d[j]) {
-                                        int tmp = d[i];
-                                        d[i] = d[j];
-                                        d[j] = tmp;
+                            if (choose.equals("b")){
+                                int[] d = new int[a.length];
+                                for(int i=0;i<aso.length;i++){
+                                    d[i] = aso[i];
+                                }
+                                for (int i = 0; i < d.length - 1; i++) {
+                                    for (int j = i + 1; j < d.length; j++) {
+                                        if (d[i] > d[j]) {
+                                            int tmp = d[i];
+                                            d[i] = d[j];
+                                            d[j] = tmp;
+                                        }
                                     }
                                 }
-                            }
-                            aso=d;
-                            for (int i=0;i<aso.length;i++){
-                                System.out.print(aso[i]+" ");
-                            }
+                                aso = d;
+                                System.out.print("Display Array: ");
+                                for (int i=0;i<aso.length;i++){
+                                    System.out.print(aso[i]+" ");
+                                }
+                            } else if (choose.equals("a")) {
+                                System.out.print("Display Array: ");
+                                for(int i=0;i<a.length;i++){
 
-                        }else if (aso.length == 0  || des.length != 0 ) {
-                            System.out.println("a.Original list:");
-                            for (int i=0;i<a.length;i++){
-                                System.out.print(a[i]+" ");
-                            }
-                            System.out.println();
-                            System.out.println("b.Sorted list:");
-                            int[] d = new int[a.length];
-                            for(int i=0;i<a.length;i++){
-                                d[i] = a[i];
-                            }
-                            for (int i = 0; i < d.length - 1; i++) {
-                                for (int j = i + 1; j < d.length; j++) {
-                                    if (d[i] < d[j]) {
-                                        int tmp = d[i];
-                                        d[i] = d[j];
-                                        d[j] = tmp;
-                                    }
+                                    System.out.print(a[i]+" ");
                                 }
                             }
-                            des=d;
-                            for (int i=0;i<des.length;i++){
-                                System.out.print(des[i]+" ");
+                        }else if (aso.length == 0  || des.length != 0 ) {
+                            System.out.println("a.Original list");
+                            System.out.println("b.Sorted list(DES)");
+                            System.out.print("Choose (a-b):");
+                            String choose = in.next();
+                            while (!choose.equals("a") && !choose.equals("b")) {
+                                System.out.println("Invalid Choice");
+                                System.out.print("Choose again:");
+                                choose = in.next();
+                            }
+                            if (choose.equals("b")){
+                                int[] d = new int[a.length];
+                                for(int i=0;i<a.length;i++){
+                                    d[i] = a[i];
+                                }
+                                for (int i = 0; i < d.length - 1; i++) {
+                                    for (int j = i + 1; j < d.length; j++) {
+                                        if (d[i] < d[j]) {
+                                            int tmp = d[i];
+                                            d[i] = d[j];
+                                            d[j] = tmp;
+                                        }
+                                    }
+                                }
+                                des=d;
+                                System.out.print("Display Array: ");
+                                for (int i=0;i<des.length;i++){
+                                    System.out.print(des[i]+" ");
+                                }
+                            } else if (choose.equals("a")) {
+                                System.out.print("Display Array: ");
+                                for(int i=0;i<a.length;i++){
+
+                                    System.out.print(a[i]+" ");
+                                }
                             }
                         }
                     }break;
@@ -193,6 +263,10 @@ public class array1 {
                         }
                     }break;
                     case 7:{
+                        for (int i=0;i<a.length;i++){
+                            System.out.print(a[i]+" ");
+                        }
+                        System.out.println();
                         System.out.print("Enter search value: ");
                         int value = in.nextInt();
 
